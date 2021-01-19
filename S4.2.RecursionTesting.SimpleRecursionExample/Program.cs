@@ -10,13 +10,23 @@ namespace S4._2.RecursionTesting.SimpleRecursionExample
             //SimpleRecursion(3);
             //FibonacciSequence();
 
-            for(int n = 1; n <= 14; n++)
+            //for(int n = 1; n <= 14; n++)
+            //{
+            //    Console.WriteLine(FactorialRecursion(n));
+            //}
+            //Console.ReadLine();
+            try
             {
-                Console.WriteLine(FactorialRecursion(n));
+                throw new Exception("This is the exception",
+         new Exception("This is the first inner exception.",
+             new Exception("This is the last inner exception.")));
             }
-            Console.ReadLine();
-
+            catch(Exception ex)
+            {
+                Console.WriteLine(ExceptionTesting.ExceptionTesting.GetInnerExceptions(ex).Message);
+            }
         }
+        
 
 
         private static int SimpleRecursion(int n)
